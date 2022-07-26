@@ -16,7 +16,7 @@ int main(void)
 	
 	for(int i=0;i<elment-1;i++)
 	{
-		for(int y=0;y<elment-i;y++)
+		for(int y=0;y<elment-i-1;y++)
 		{
 			if(arr[y]>arr[y+1])
 			{
