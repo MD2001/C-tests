@@ -4,7 +4,7 @@ int main (void)
 	int pnum;
 	int products[12]={0};
 	int prices[12]={5,3,1,5,5,3,1,8,6,4,7,2};
-	char names[20][12]={"","","","","","","","","","apple","banana","orange"};
+	char names[20][12]={"cookies","cakes","cupcakes","milk","butter","cheese","Tomato","Garlic","Pumpkin","apple","banana","orange"};
 	double sales=0.0;
 	int quantity=0;
 	int	part,chose,tdelvary;
