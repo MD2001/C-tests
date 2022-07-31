@@ -146,7 +146,7 @@ int main (void)
 		printf("your proudct num is : %d\n",pnum);
 		if(pnum>=5)
 		{
-			sales*=0.2;
+			sales*=0.8;
 		}
 		printf("your cost is : %0.2f$\n",sales);
 		printf("================================================\n");
