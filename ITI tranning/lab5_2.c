@@ -3,9 +3,9 @@
 void main(void)
 
 {
-	int x=0;
+	int num=0;
 	printf("please enter the answer of 3 * 4 = ");
-	scanf("%d",&x);
+	scanf("%d",&num);
 
 	while(x!=12)
 	{
