@@ -12,7 +12,7 @@ int main()
 void max(int x,int y)
 {
 	if(x>y)
-	{
+	{ 
 		printf("max is %d",x);
 	}
 	else{
