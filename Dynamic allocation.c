@@ -19,7 +19,7 @@ int main(void)
 		for(int y=0;y<elment-i-1;y++)
 		{
 			if(arr[y]>arr[y+1])
-			{
+			{ 
 				temp=arr[y];
 				arr[y]=arr[y+1];
 				arr[y+1]=temp;
