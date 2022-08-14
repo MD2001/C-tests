@@ -128,10 +128,10 @@ u32 DIO_GetPinValue(u8 Port,u8 Pin)
 {
 switch(Port)
 {
-	case PORTA: return GET_BIT(PORTA_RG,Pin);
-	case PORTB: return GET_BIT(PORTB_RG,Pin);
-	case PORTC: return GET_BIT(PORTC_RG,Pin);
-	case PORTD: return GET_BIT(PORTD_RG,Pin);
+	case PORTA: return GET_BIT(PINA_RG,Pin);
+	case PORTB: return GET_BIT(PINB_RG,Pin);
+	case PORTC: return GET_BIT(PINC_RG,Pin);
+	case PORTD: return GET_BIT(PIND_RG,Pin);
 }
 }
 
