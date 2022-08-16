@@ -26,7 +26,7 @@ int main(void)
 				LCD_WriteString("Mohamed");
 				_delay_ms(500);
 			}
-
+ 
 	}
 
 	return 0;
