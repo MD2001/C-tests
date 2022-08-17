@@ -3,33 +3,30 @@
 #include "../HAL/Key Pad/KPD_INTERFACE.h"
 #include "../HAL/Key Pad/KPD_CONFIG.h"
 #include "../HAL/Key Pad/KPD_PRIVETE.h"
+#include "../HAL/Steper/STEPER_INTERFACE.h"
 #include <avr/delay.h>
+
 
 int main(void)
 {
-	KPD_Init();
+	u8 arr[8]={
+			0b00000,
+			0b00100,
+			0b00100,
+			0b00100,
+			0b01010,
+			0b10001,
+			0b10001,
+	};
+
+
 	LCD_Init();
-
-	u8	local_u8Key;
-
+	LCD_voidDisplaySpecialChar(arr,0x02,0,0);
 
 	while(1)
 	{
 
-		local_u8Key=KPD_u8GetPressedKye();
 
-		while(local_u8Key==0xff)
-		{
-			local_u8Key=KPD_u8GetPressedKye();
-		}
-		if(local_u8Key==1)
-		{
-			LCD_WriteCommand(0x01);
-		}
-		else
-		{
-			LCD_WriteData(local_u8Key);
-		}
 	}
 
 	return 0;

@@ -4,20 +4,20 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../MCAL/DIO/DIO_PROGRAM.c 
+../HAL/Key\ Pad/KPD_PROGRAMME.c 
 
 OBJS += \
-./MCAL/DIO/DIO_PROGRAM.o 
+./HAL/Key\ Pad/KPD_PROGRAMME.o 
 
 C_DEPS += \
-./MCAL/DIO/DIO_PROGRAM.d 
+./HAL/Key\ Pad/KPD_PROGRAMME.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-MCAL/DIO/%.o: ../MCAL/DIO/%.c
+HAL/Key\ Pad/KPD_PROGRAMME.o: ../HAL/Key\ Pad/KPD_PROGRAMME.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR Compiler'
-	avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
+	avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/Key Pad/KPD_PROGRAMME.d" -MT"HAL/Key\ Pad/KPD_PROGRAMME.d" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

@@ -24,5 +24,6 @@ SUBDIRS := \
 APP \
 HAL/Key\ Pad \
 HAL/LCD \
+HAL/Steper \
 MCAL/DIO \
 
