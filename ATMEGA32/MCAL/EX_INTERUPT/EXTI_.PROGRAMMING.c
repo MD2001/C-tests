@@ -118,3 +118,14 @@ void EXTI_voidInt2Init()
 
 
 }
+
+
+/*to not forget how set function to vector table**/
+
+/*
+void __vector_2 (void)__attribute__((signal));
+void __vector_2 (void)
+{
+	DIO_SetPinValue(DIO_PORTA,DIO_PIN0,DIO_HIGH);
+}
+*/
