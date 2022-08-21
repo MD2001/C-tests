@@ -17,10 +17,10 @@
 
 void LCD_Init(void)
 {
-	DIO_SetPinDirection(DIO_PORTB,DIO_PIN1,DIO_OUTPUT); //RS
-	DIO_SetPinDirection(DIO_PORTB,DIO_PIN2,DIO_OUTPUT); //EN
+	DIO_SetPinDirection(RS,DIO_OUTPUT); //RS
+	DIO_SetPinDirection(EN,DIO_OUTPUT); //EN
 
-	DIO_SetPortDirection(DIO_PORTA,0xFF);
+	DIO_SetPortDirection(LCD_PORT,0xFF);
 	_delay_ms(100);
 
 	LCD_WriteCommand(0x38);
@@ -35,27 +35,27 @@ void LCD_Init(void)
 void LCD_WriteCommand(u8 Command)
 {
 	/* Rs = 0*/
-	DIO_SetPinValue(DIO_PORTB,DIO_PIN1,DIO_LOW);
+	DIO_SetPinValue(RS,DIO_LOW);
 	/* Rw = 0*/
 
-	DIO_SetPortValue(DIO_PORTA,Command);
+	DIO_SetPortValue(LCD_PORT,Command);
 	/*Set Enable */
-	DIO_SetPinValue(DIO_PORTB,DIO_PIN2,DIO_HIGH); //EN
+	DIO_SetPinValue(EN,DIO_HIGH); //EN
 	_delay_ms(1);
-	DIO_SetPinValue(DIO_PORTB,DIO_PIN2,DIO_LOW);
+	DIO_SetPinValue(EN,DIO_LOW);
 	_delay_ms(5);
 }
 void LCD_WriteData(u8 Data)
 {
 	/* Rs = 0*/
-	DIO_SetPinValue(DIO_PORTB,DIO_PIN1,DIO_HIGH);
+	DIO_SetPinValue(RS,DIO_HIGH);
 	/* Rw = 0*/
 
-	DIO_SetPortValue(DIO_PORTA,Data);
+	DIO_SetPortValue(LCD_PORT,Data);
 	/*Set Enable */
-	DIO_SetPinValue(DIO_PORTB,DIO_PIN2,DIO_HIGH); //EN
+	DIO_SetPinValue(EN,DIO_HIGH); //EN
 	_delay_ms(1);
-	DIO_SetPinValue(DIO_PORTB,DIO_PIN2,DIO_LOW);
+	DIO_SetPinValue(EN,DIO_LOW);
 	_delay_ms(5);
 }
 
