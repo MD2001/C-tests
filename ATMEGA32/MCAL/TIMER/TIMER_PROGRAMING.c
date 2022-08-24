@@ -13,6 +13,18 @@
 
 #define NULL    ((void *) 0)
 static void (*TIMER0_pvCallBackFunc)(void)=NULL;
+static u16 ms=0;
+static void time_for_1ms()
+{
+	static u8 counter=0;
+	counter++;
+	if(counter == 4)
+	{
+		counter=0;
+		ms++;
+		TCNT0=20;
+	}
+}
 
 void Timer_init()
 {
@@ -100,10 +112,47 @@ void TIMER_SetTCNT0TO(u8 num)
 	TCNT0=num;
 }
 
-
-void TIMER_SetCallBack(void (*Copy_pvCallBackFunc)(void))
+void TIMER_delay_ms(u16 time_ms)
 {
-	//u8 Local_u8ErrorStauts=NULL;
+	/*set to normal mode and set presquler to 8*/
+	/*
+	 * Normal mood:
+	 *  CLR_BIT(TCCR0,TCCR0_WGM01);
+		CLR_BIT(TCCR0,TCCR0_WGM00);
+
+		presquler 8 :
+		CLR_BIT(TCCR0,TCCR0_CS02);
+		SET_BIT(TCCR0,TCCR0_CS01);
+		CLR_BIT(TCCR0,TCCR0_CS00);
+
+	 * **/
+
+
+	TCCR0 |=0b00000010;
+	TCNT0=20;
+	TIMER_SetCallBack(&time_for_1ms);
+
+	/*Enable overflow interupt*/
+	SET_BIT(TIMSK,TIMSK_TOIE0);
+
+	while(ms != time_ms)
+	{}
+	ms =0;
+}
+
+void TIMER_delay()
+{
+	TCCR0 |=0b00001010;
+
+
+
+	}
+
+
+
+u8 TIMER_SetCallBack(void (*Copy_pvCallBackFunc)(void))
+{
+	u8 Local_u8ErrorStauts=OK;
 	if(Copy_pvCallBackFunc != NULL)
 	{
 		TIMER0_pvCallBackFunc=Copy_pvCallBackFunc;
@@ -113,10 +162,11 @@ void TIMER_SetCallBack(void (*Copy_pvCallBackFunc)(void))
 	{
 
 	}
+	return Local_u8ErrorStauts;
 }
 
-void __vector_10 (void) __attribute__((signal));
-void __vector_10 (void)
+void __vector_11 (void) __attribute__((signal));
+void __vector_11 (void)
 {
 	if(TIMER0_pvCallBackFunc != NULL)
 	{

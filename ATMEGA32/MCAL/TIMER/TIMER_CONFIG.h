@@ -6,7 +6,7 @@
 #ifndef TIMER_CONFIG_H
 #define TIMER_CONFIG_H
 
- 
+
 
 /*
  * OPRTIONS:
@@ -15,7 +15,7 @@
  * 3-CTC
  * 4-Fast PWM
  * */
-#define Mode 		1
+#define Mode 		4
 /*
  * OPRTIONS:
  *	1- No_clock_source
