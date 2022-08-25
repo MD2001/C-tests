@@ -11,7 +11,7 @@
 #include "TIMER_INTERFACE.h"
 #include "TIMER_PRIVET.h"
 
-#define NULL    ((void *) 0)
+
 static void (*TIMER0_pvCallBackFunc)(void)=NULL;
 static u16 ms=0;
 static void time_for_1ms()
@@ -127,7 +127,7 @@ void TIMER_delay_ms(u16 time_ms)
 
 	 * **/
 
-
+	GIE_voidEnable(); /*To Enable Interubt*/
 	TCCR0 |=0b00000010;
 	TCNT0=20;
 	TIMER_SetCallBack(&time_for_1ms);
@@ -140,13 +140,7 @@ void TIMER_delay_ms(u16 time_ms)
 	ms =0;
 }
 
-void TIMER_delay()
-{
-	TCCR0 |=0b00001010;
 
-
-
-	}
 
 
 
