@@ -8,7 +8,7 @@
 #define KYP_CONFIG_H
 
 #define KPD_NO_PRESSED_KEY    0xff
-
+ 
 #define KPD_PORT   		      DIO_PORTD
 
 #define KPD_ARR_VAL     	  { {1,'0','=','+' }, {'1','2','3','-'} , {'4','5','6','*'} , {'7','8','9','/'} }
