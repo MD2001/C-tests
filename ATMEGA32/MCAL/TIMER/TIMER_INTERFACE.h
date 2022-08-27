@@ -15,5 +15,13 @@ void TIMER_OC0State();
 
 void TIMER_SetOCR0TO(u8 num);
 void TIMER_SetTCNT0TO(u8 num);
+void ICU_Init();
+void ICU_SetEdge(u8 Edge);
 
+void ICU_DisableIntrupt();
+void ICU_EnableIntrupt();
+void TIMER0_FastPwmMode(u8 FAST_PWM_MODE);
+
+#define ICU_RISING_EDGE			1
+#define ICU_FALLING_EDGE		2
 #endif

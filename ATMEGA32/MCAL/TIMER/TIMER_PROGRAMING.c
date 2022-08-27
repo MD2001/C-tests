@@ -6,13 +6,15 @@
 
 #include "../../LIB/BIT_MATH.h"
 #include "../../LIB/STD_TYPES.h"
-
+#include "../GIE/GIE_INTERFACE.h"
 #include "TIMER_CONFIG.h"
 #include "TIMER_INTERFACE.h"
 #include "TIMER_PRIVET.h"
 
 
 static void (*TIMER0_pvCallBackFunc)(void)=NULL;
+static void (*ICU_pvCallBackFunc)(void) =NULL;
+
 static u16 ms=0;
 static void time_for_1ms()
 {
@@ -41,6 +43,7 @@ void Timer_init()
 #elif Mode == Fast_PWM
 	SET_BIT(TCCR0,TCCR0_WGM01);
 	SET_BIT(TCCR0,TCCR0_WGM00);
+	TIMER0_FastPwmMode(NonInvertingMode);
 #else
 #error "Warning : the mode not selected correct"
 #endif
@@ -85,6 +88,20 @@ void Timer_init()
 	OCR0=250;
 }
 
+void TIMER0_FastPwmMode(u8 FAST_PWM_MODE)
+{
+	if(FAST_PWM_MODE ==NonInvertingMode)
+	{
+		SET_BIT(TCCR0,TCCR0_COM01);
+		CLR_BIT(TCCR0,TCCR0_COM00);
+	}
+	else if(FAST_PWM_MODE ==InvertingMode)
+	{
+		SET_BIT(TCCR0,TCCR0_COM01);
+		SET_BIT(TCCR0,TCCR0_COM00);
+	}
+}
+
 void TIMER_OC0State()
 {
 #if OC0State ==  disconnected
@@ -127,7 +144,8 @@ void TIMER_delay_ms(u16 time_ms)
 
 	 * **/
 
-	GIE_voidEnable(); /*To Enable Interubt*/
+	GIE_voidEnable();
+	/*To Enable Interubt*/
 	TCCR0 |=0b00000010;
 	TCNT0=20;
 	TIMER_SetCallBack(&time_for_1ms);
@@ -159,12 +177,79 @@ u8 TIMER_SetCallBack(void (*Copy_pvCallBackFunc)(void))
 	return Local_u8ErrorStauts;
 }
 
+void ICU_Init()
+{
+
+	///**Set to rising eddge*/
+	SET_BIT(TCCR1B,TCCR1B_ICES1);
+	/*Enable interupt*/
+	SET_BIT(TIMSK,TIMSK_TICIE1);
+
+
+}
+
+void ICU_SetEdge(u8 Edge)
+{
+	if(Edge==ICU_RISING_EDGE)
+	{
+		SET_BIT(TCCR1B,TCCR1B_ICES1);
+	}
+	else if(Edge==ICU_FALLING_EDGE)
+	{
+		CLR_BIT(TCCR1B,TCCR1B_ICES1);
+	}
+
+}
+
+void ICU_EnableIntrupt()
+{
+	SET_BIT(TIMSK,TIMSK_TICIE1);
+}
+
+void ICU_DisableIntrupt()
+{
+	CLR_BIT(TIMSK,TIMSK_TICIE1);
+}
+
+u16 ICU_ReadICU()
+{
+	return ICR1;
+}
+
+u8 ICU_SetCallBack(void (*Copy_pvCallBackFunc)(void))
+{
+
+	u8 Local_u8ErrorStauts=OK;
+
+	if(Copy_pvCallBackFunc!=NULL)
+	{
+		ICU_pvCallBackFunc=Copy_pvCallBackFunc;
+	}
+	else
+	{
+		Local_u8ErrorStauts=NOT_OK;
+	}
+	return Local_u8ErrorStauts;
+
+}
+
 void __vector_11 (void) __attribute__((signal));
 void __vector_11 (void)
 {
 	if(TIMER0_pvCallBackFunc != NULL)
 	{
 		TIMER0_pvCallBackFunc();
+	}
+
+}
+
+
+void __vector_6 (void) __attribute__((signal));
+void __vector_6 (void)
+{
+	if(ICU_pvCallBackFunc != NULL)
+	{
+		ICU_pvCallBackFunc();
 	}
 
 }
