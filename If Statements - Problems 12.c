@@ -14,7 +14,7 @@ int main (void)
 		printf("31 days");
 	}
 	else if((num==4)||(num==6)||(num==9)||(num==11)){
-		printf("30 days");
+		printf("30 days );
 	}
 	else{
 		printf("Invalid input! Please enter month number between (1-12).");
