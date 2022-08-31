@@ -116,7 +116,7 @@ void LCD_voidDisplayIntegar(u32 COPY_u32Number)
 			COPY_u32Number=COPY_u32Number/10;
 			i++;
 		}
-        i--;
+      		  i--;
 		while(i>=0)
 		{
 			LCD_WriteData(LOCAL_u8Num[i]+48);
