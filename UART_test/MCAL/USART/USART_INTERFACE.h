@@ -8,7 +8,15 @@
 
 #include "../../LIB/STD_TYPES.h"
 
+
+
+
+
 u8 USART_u8Read();
 void USART_voidSend(u8 Copy_data);
 void USART_voidInit(void);
+
+u8* USART_ReciveString();
+void USART_SendString(u8* Copy_data);
+
 #endif

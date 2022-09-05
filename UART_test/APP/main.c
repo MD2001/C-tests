@@ -1,9 +1,14 @@
-#include "../MCAL/USART/USART_INTERFACE.h"
 
+/***********************************************************************************************************/
+/***************************** Author : Mohamed diaa********************************************************/
+/***************************** Layer : MCAL ****************************************************************/
+/***************************** SWC : USART *******************************************************************/
+/***************************** Version : 2.0 ***************************************************************/
 #include "../LIB/STD_TYPES.h"
 #include "../LIB/BIT_MATH.h"
 #include "../HAL/LCD/LCD_INTERFACE.h"
 #include "../MCAL/DIO/DIO_INTERFACE.h"
+#include "../MCAL/USART/USART_INTERFACE.h"
 #include <avr/delay.h>
 int main(void)
 {
@@ -12,33 +17,17 @@ int main(void)
 	LCD_Init();
 	USART_voidInit();
 
-	LCD_WriteData('5');
-	_delay_ms(500);
-	LCD_GoToXY(0,0);
-	LCD_WriteData('4');
-	_delay_ms(500);
-	LCD_GoToXY(0,0);
-	LCD_WriteData('3');
-	_delay_ms(500);
-	LCD_GoToXY(0,0);
-	LCD_WriteData('2');
-	_delay_ms(500);
-	LCD_GoToXY(0,0);
-	LCD_WriteData('1');
-	_delay_ms(500);
-	LCD_GoToXY(0,0);
-	LCD_WriteData('0');
-	_delay_ms(500);
-	LCD_WriteCommand(lcd_clr);
-	u8 x='0';
-	x=USART_u8Read();
+
+	USART_SendString("Enter your name: ");
+	u8 * z=USART_ReciveString();
+	LCD_WriteString(z);
+	LCD_GoToXY(1,0);
+	LCD_WriteString("DONE");
 
 	while(1)
 	{
-		x=USART_u8Read();
-		LCD_GoToXY(0,0);
-		LCD_WriteData(x);
 
 	}
+
 	return 0;
 }

@@ -57,3 +57,28 @@ void USART_voidSend(u8 Copy_data)
 	UDR=Copy_data;
 
 }
+
+void USART_SendString(u8* Copy_data)
+{
+	u8 i=0;
+	while(Copy_data[i]!='\0')
+	{
+		USART_voidSend(Copy_data[i]);
+		i++;
+	}
+}
+
+u8* USART_ReciveString()
+{
+	static u8 string[100]={0};
+	u8 i=0;
+	u8 x=USART_u8Read();
+	while(x !=0x0D)
+	{
+		string[i]=x;
+		x=USART_u8Read();
+		i++;
+	}
+	return string;
+}
+

@@ -6,6 +6,8 @@ e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/
                               e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o (exit)
 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
                               ./HAL/Key Pad/KPD_PROGRAMME.o (__do_copy_data)
+e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                              ./MCAL/USART/USART_PROGRAMING.o (__do_clear_bss)
 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
                               ./HAL/LCD/LCD_PROGRAM.o (__fixunssfsi)
 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
@@ -146,7 +148,7 @@ LOAD e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/..
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x256e
+.text           0x00000000     0x1fa4
  *(.vectors)
  .vectors       0x00000000       0x54 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -186,6 +188,8 @@ LOAD e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/..
  *(.init4)
  .init4         0x00000060       0x16 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
                 0x00000060                __do_copy_data
+ .init4         0x00000076       0x10 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000076                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -196,131 +200,139 @@ LOAD e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/..
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000076        0x8 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .init9         0x00000086        0x8 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
  *(.init9)
  *(.text)
- .text          0x0000007e        0x4 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
-                0x0000007e                __vector_1
-                0x0000007e                __vector_12
-                0x0000007e                __bad_interrupt
-                0x0000007e                __vector_6
-                0x0000007e                __vector_3
-                0x0000007e                __vector_11
-                0x0000007e                __vector_13
-                0x0000007e                __vector_17
-                0x0000007e                __vector_19
-                0x0000007e                __vector_7
-                0x0000007e                __vector_5
-                0x0000007e                __vector_4
-                0x0000007e                __vector_9
-                0x0000007e                __vector_2
-                0x0000007e                __vector_15
-                0x0000007e                __vector_8
-                0x0000007e                __vector_14
-                0x0000007e                __vector_10
-                0x0000007e                __vector_16
-                0x0000007e                __vector_18
-                0x0000007e                __vector_20
- .text          0x00000082        0x0 ./MCAL/USART/USART_PROGRAMING.o
- .text          0x00000082        0x0 ./MCAL/DIO/DIO_PROGRAM.o
- .text          0x00000082        0x0 ./HAL/LCD/LCD_PROGRAM.o
- .text          0x00000082        0x0 ./HAL/Key Pad/KPD_PROGRAMME.o
- .text          0x00000082        0x0 ./APP/main.o
- .text          0x00000082        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .text          0x00000082        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text          0x00000082        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text          0x00000082       0x58 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
-                0x00000082                __fixunssfsi
- .text          0x000000da      0x354 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
-                0x00000372                __subsf3
-                0x000003d4                __addsf3
- .text          0x0000042e      0x1f4 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
-                0x0000042e                __mulsf3
- .text          0x00000622       0x60 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
-                0x00000622                __gtsf2
- .text          0x00000682       0x60 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
-                0x00000682                __gesf2
- .text          0x000006e2       0x60 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
-                0x000006e2                __ltsf2
- .text          0x00000742       0xa8 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
-                0x00000742                __fixsfsi
- .text          0x000007ea        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
- .text          0x000007ea        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .text          0x000007ea        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .text          0x000007ea      0x1aa e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
-                0x000007ea                __pack_f
- .text          0x00000994       0xf0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
-                0x00000994                __unpack_f
- .text          0x00000a84       0xb2 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
-                0x00000a84                __fpcmp_parts_f
-                0x00000b36                . = ALIGN (0x2)
+ .text          0x0000008e        0x4 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x0000008e                __vector_1
+                0x0000008e                __vector_12
+                0x0000008e                __bad_interrupt
+                0x0000008e                __vector_6
+                0x0000008e                __vector_3
+                0x0000008e                __vector_11
+                0x0000008e                __vector_13
+                0x0000008e                __vector_17
+                0x0000008e                __vector_19
+                0x0000008e                __vector_7
+                0x0000008e                __vector_5
+                0x0000008e                __vector_4
+                0x0000008e                __vector_9
+                0x0000008e                __vector_2
+                0x0000008e                __vector_15
+                0x0000008e                __vector_8
+                0x0000008e                __vector_14
+                0x0000008e                __vector_10
+                0x0000008e                __vector_16
+                0x0000008e                __vector_18
+                0x0000008e                __vector_20
+ .text          0x00000092        0x0 ./MCAL/USART/USART_PROGRAMING.o
+ .text          0x00000092        0x0 ./MCAL/DIO/DIO_PROGRAM.o
+ .text          0x00000092        0x0 ./HAL/LCD/LCD_PROGRAM.o
+ .text          0x00000092        0x0 ./HAL/Key Pad/KPD_PROGRAMME.o
+ .text          0x00000092        0x0 ./APP/main.o
+ .text          0x00000092        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x00000092        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00000092        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000092        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text          0x00000092       0x58 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+                0x00000092                __fixunssfsi
+ .text          0x000000ea      0x354 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+                0x00000382                __subsf3
+                0x000003e4                __addsf3
+ .text          0x0000043e      0x1f4 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+                0x0000043e                __mulsf3
+ .text          0x00000632       0x60 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+                0x00000632                __gtsf2
+ .text          0x00000692       0x60 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+                0x00000692                __gesf2
+ .text          0x000006f2       0x60 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+                0x000006f2                __ltsf2
+ .text          0x00000752       0xa8 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+                0x00000752                __fixsfsi
+ .text          0x000007fa        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+ .text          0x000007fa        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .text          0x000007fa        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .text          0x000007fa      0x1aa e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+                0x000007fa                __pack_f
+ .text          0x000009a4       0xf0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+                0x000009a4                __unpack_f
+ .text          0x00000a94       0xb2 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+                0x00000a94                __fpcmp_parts_f
+                0x00000b46                . = ALIGN (0x2)
  *(.text.*)
  .text.USART_voidInit
-                0x00000b36       0x86 ./MCAL/USART/USART_PROGRAMING.o
-                0x00000b36                USART_voidInit
+                0x00000b46       0x86 ./MCAL/USART/USART_PROGRAMING.o
+                0x00000b46                USART_voidInit
  .text.USART_u8Read
-                0x00000bbc       0x1e ./MCAL/USART/USART_PROGRAMING.o
-                0x00000bbc                USART_u8Read
+                0x00000bcc       0x1e ./MCAL/USART/USART_PROGRAMING.o
+                0x00000bcc                USART_u8Read
  .text.USART_voidSend
-                0x00000bda       0x34 ./MCAL/USART/USART_PROGRAMING.o
-                0x00000bda                USART_voidSend
+                0x00000bea       0x34 ./MCAL/USART/USART_PROGRAMING.o
+                0x00000bea                USART_voidSend
+ .text.USART_SendString
+                0x00000c1e       0x52 ./MCAL/USART/USART_PROGRAMING.o
+                0x00000c1e                USART_SendString
+ .text.USART_ReciveString
+                0x00000c70       0x44 ./MCAL/USART/USART_PROGRAMING.o
+                0x00000c70                USART_ReciveString
  .text.DIO_SetPinDirection
-                0x00000c0e      0x1e4 ./MCAL/DIO/DIO_PROGRAM.o
-                0x00000c0e                DIO_SetPinDirection
+                0x00000cb4      0x1e4 ./MCAL/DIO/DIO_PROGRAM.o
+                0x00000cb4                DIO_SetPinDirection
  .text.DIO_SetPinValue
-                0x00000df2      0x1e4 ./MCAL/DIO/DIO_PROGRAM.o
-                0x00000df2                DIO_SetPinValue
+                0x00000e98      0x1e4 ./MCAL/DIO/DIO_PROGRAM.o
+                0x00000e98                DIO_SetPinValue
  .text.DIO_GetPinValue
-                0x00000fd6       0xf2 ./MCAL/DIO/DIO_PROGRAM.o
-                0x00000fd6                DIO_GetPinValue
+                0x0000107c       0xf2 ./MCAL/DIO/DIO_PROGRAM.o
+                0x0000107c                DIO_GetPinValue
  .text.DIO_SetPortDirection
-                0x000010c8       0x82 ./MCAL/DIO/DIO_PROGRAM.o
-                0x000010c8                DIO_SetPortDirection
+                0x0000116e       0x82 ./MCAL/DIO/DIO_PROGRAM.o
+                0x0000116e                DIO_SetPortDirection
  .text.DIO_SetPortValue
-                0x0000114a       0x82 ./MCAL/DIO/DIO_PROGRAM.o
-                0x0000114a                DIO_SetPortValue
+                0x000011f0       0x82 ./MCAL/DIO/DIO_PROGRAM.o
+                0x000011f0                DIO_SetPortValue
  .text.LCD_Init
-                0x000011cc      0x3ea ./HAL/LCD/LCD_PROGRAM.o
-                0x000011cc                LCD_Init
+                0x00001272      0x3ea ./HAL/LCD/LCD_PROGRAM.o
+                0x00001272                LCD_Init
  .text.LCD_WriteCommand
-                0x000015b6      0x216 ./HAL/LCD/LCD_PROGRAM.o
-                0x000015b6                LCD_WriteCommand
+                0x0000165c      0x216 ./HAL/LCD/LCD_PROGRAM.o
+                0x0000165c                LCD_WriteCommand
  .text.LCD_WriteData
-                0x000017cc      0x216 ./HAL/LCD/LCD_PROGRAM.o
-                0x000017cc                LCD_WriteData
+                0x00001872      0x216 ./HAL/LCD/LCD_PROGRAM.o
+                0x00001872                LCD_WriteData
  .text.LCD_WriteString
-                0x000019e2       0x52 ./HAL/LCD/LCD_PROGRAM.o
-                0x000019e2                LCD_WriteString
+                0x00001a88       0x52 ./HAL/LCD/LCD_PROGRAM.o
+                0x00001a88                LCD_WriteString
  .text.LCD_GoToXY
-                0x00001a34       0x3c ./HAL/LCD/LCD_PROGRAM.o
-                0x00001a34                LCD_GoToXY
+                0x00001ada       0x3c ./HAL/LCD/LCD_PROGRAM.o
+                0x00001ada                LCD_GoToXY
  .text.LCD_voidDisplayIntegar
-                0x00001a70      0x114 ./HAL/LCD/LCD_PROGRAM.o
-                0x00001a70                LCD_voidDisplayIntegar
+                0x00001b16      0x114 ./HAL/LCD/LCD_PROGRAM.o
+                0x00001b16                LCD_voidDisplayIntegar
  .text.LCD_voidDisplaySpecialChar
-                0x00001b84       0x90 ./HAL/LCD/LCD_PROGRAM.o
-                0x00001b84                LCD_voidDisplaySpecialChar
+                0x00001c2a       0x90 ./HAL/LCD/LCD_PROGRAM.o
+                0x00001c2a                LCD_voidDisplaySpecialChar
  .text.KPD_Init
-                0x00001c14       0x66 ./HAL/Key Pad/KPD_PROGRAMME.o
-                0x00001c14                KPD_Init
+                0x00001cba       0x66 ./HAL/Key Pad/KPD_PROGRAMME.o
+                0x00001cba                KPD_Init
  .text.KPD_u8GetPressedKye
-                0x00001c7a      0x17e ./HAL/Key Pad/KPD_PROGRAMME.o
-                0x00001c7a                KPD_u8GetPressedKye
- .text.main     0x00001df8      0x6c0 ./APP/main.o
-                0x00001df8                main
- .text.libgcc   0x000024b8       0x44 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x000024b8                __udivmodsi4
- .text.libgcc   0x000024fc        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x000024fc        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x000024fc       0x38 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x000024fc                __prologue_saves__
- .text.libgcc   0x00002534       0x36 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00002534                __epilogue_restores__
-                0x0000256a                . = ALIGN (0x2)
+                0x00001d20      0x17e ./HAL/Key Pad/KPD_PROGRAMME.o
+                0x00001d20                KPD_u8GetPressedKye
+ .text.main     0x00001e9e       0x50 ./APP/main.o
+                0x00001e9e                main
+ .text.libgcc   0x00001eee       0x44 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001eee                __udivmodsi4
+ .text.libgcc   0x00001f32        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00001f32        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00001f32        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00001f32       0x38 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00001f32                __prologue_saves__
+ .text.libgcc   0x00001f6a       0x36 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00001f6a                __epilogue_restores__
+                0x00001fa0                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000256a        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000256a                exit
-                0x0000256a                _exit
+ .fini9         0x00001fa0        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00001fa0                exit
+                0x00001fa0                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -339,11 +351,11 @@ LOAD e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/..
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000256a        0x4 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00001fa0        0x4 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000256e                _etext = .
+                0x00001fa4                _etext = .
 
-.data           0x00800060       0x18 load address 0x0000256e
+.data           0x00800060       0x30 load address 0x00001fa4
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -351,71 +363,76 @@ LOAD e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/..
  .data          0x00800060        0x0 ./MCAL/DIO/DIO_PROGRAM.o
  .data          0x00800060        0x0 ./HAL/LCD/LCD_PROGRAM.o
  .data          0x00800060        0x0 ./HAL/Key Pad/KPD_PROGRAMME.o
- .data          0x00800060        0x0 ./APP/main.o
- .data          0x00800060        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .data          0x00800060        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .data          0x00800060        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .data          0x00800060        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .data          0x00800060        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .data          0x00800060        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .data          0x00800060        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .data          0x00800060        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .data          0x00800060        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .data          0x00800060        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .data          0x00800060        0x8 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
-                0x00800060                __thenan_sf
- .data          0x00800068        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .data          0x00800068        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .data          0x00800068        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .data          0x00800068        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .data          0x00800068        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .data          0x00800060       0x17 ./APP/main.o
+ .data          0x00800077        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x00800077        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800077        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800077        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00800077        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .data          0x00800077        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .data          0x00800077        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .data          0x00800077        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .data          0x00800077        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .data          0x00800077        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .data          0x00800077        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .data          0x00800077        0x8 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+                0x00800077                __thenan_sf
+ .data          0x0080007f        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .data          0x0080007f        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .data          0x0080007f        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .data          0x0080007f        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .data          0x0080007f        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  .rodata.C.0.1250
-                0x00800068       0x10 ./HAL/Key Pad/KPD_PROGRAMME.o
+                0x0080007f       0x10 ./HAL/Key Pad/KPD_PROGRAMME.o
  *(.gnu.linkonce.d*)
-                0x00800078                . = ALIGN (0x2)
-                0x00800078                _edata = .
-                0x00800078                PROVIDE (__data_end, .)
+                0x00800090                . = ALIGN (0x2)
+ *fill*         0x0080008f        0x1 00
+                0x00800090                _edata = .
+                0x00800090                PROVIDE (__data_end, .)
 
-.bss            0x00800078        0x0
-                0x00800078                PROVIDE (__bss_start, .)
+.bss            0x00800090       0x64
+                0x00800090                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x00800078        0x0 ./MCAL/USART/USART_PROGRAMING.o
- .bss           0x00800078        0x0 ./MCAL/DIO/DIO_PROGRAM.o
- .bss           0x00800078        0x0 ./HAL/LCD/LCD_PROGRAM.o
- .bss           0x00800078        0x0 ./HAL/Key Pad/KPD_PROGRAMME.o
- .bss           0x00800078        0x0 ./APP/main.o
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .bss           0x00800078        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x00800090        0x0 ./MCAL/USART/USART_PROGRAMING.o
+ .bss           0x00800090        0x0 ./MCAL/DIO/DIO_PROGRAM.o
+ .bss           0x00800090        0x0 ./HAL/LCD/LCD_PROGRAM.o
+ .bss           0x00800090        0x0 ./HAL/Key Pad/KPD_PROGRAMME.o
+ .bss           0x00800090        0x0 ./APP/main.o
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .bss           0x00800090        0x0 e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
  *(.bss*)
+ .bss.string.1257
+                0x00800090       0x64 ./MCAL/USART/USART_PROGRAMING.o
  *(COMMON)
-                0x00800078                PROVIDE (__bss_end, .)
-                0x0000256e                __data_load_start = LOADADDR (.data)
-                0x00002586                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008000f4                PROVIDE (__bss_end, .)
+                0x00001fa4                __data_load_start = LOADADDR (.data)
+                0x00001fd4                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800078        0x0
-                0x00800078                PROVIDE (__noinit_start, .)
+.noinit         0x008000f4        0x0
+                0x008000f4                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800078                PROVIDE (__noinit_end, .)
-                0x00800078                _end = .
-                0x00800078                PROVIDE (__heap_start, .)
+                0x008000f4                PROVIDE (__noinit_end, .)
+                0x008000f4                _end = .
+                0x008000f4                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -433,21 +450,21 @@ LOAD e:/iti tranning/matrial/new folder/01- imt sdk/imt_sdk_win_64/winavr/bin/..
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x2100
+.stab           0x00000000     0x1d64
  *(.stab)
- .stab          0x00000000      0x2f4 ./MCAL/USART/USART_PROGRAMING.o
- .stab          0x000002f4      0x57c ./MCAL/DIO/DIO_PROGRAM.o
+ .stab          0x00000000      0x438 ./MCAL/USART/USART_PROGRAMING.o
+ .stab          0x00000438      0x57c ./MCAL/DIO/DIO_PROGRAM.o
                                 0x588 (size before relaxing)
- .stab          0x00000870      0xd8c ./HAL/LCD/LCD_PROGRAM.o
+ .stab          0x000009b4      0xd8c ./HAL/LCD/LCD_PROGRAM.o
                                 0xd98 (size before relaxing)
- .stab          0x000015fc      0x390 ./HAL/Key Pad/KPD_PROGRAMME.o
+ .stab          0x00001740      0x390 ./HAL/Key Pad/KPD_PROGRAMME.o
                                 0x39c (size before relaxing)
- .stab          0x0000198c      0x774 ./APP/main.o
-                                0x918 (size before relaxing)
+ .stab          0x00001ad0      0x294 ./APP/main.o
+                                0x438 (size before relaxing)
 
-.stabstr        0x00000000     0x1283
+.stabstr        0x00000000     0x1139
  *(.stabstr)
- .stabstr       0x00000000     0x1283 ./MCAL/USART/USART_PROGRAMING.o
+ .stabstr       0x00000000     0x1139 ./MCAL/USART/USART_PROGRAMING.o
 
 .stab.excl
  *(.stab.excl)
