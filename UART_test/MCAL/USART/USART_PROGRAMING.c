@@ -70,15 +70,33 @@ void USART_SendString(u8* Copy_data)
 
 u8* USART_ReciveString()
 {
-	static u8 string[100]={0};
-	u8 i=0;
-	u8 x=USART_u8Read();
-	while(x !=0x0D)
+	static u8 string[50]={0};
+	for(u8 i=0;i<50;i++){string[i]=0;}			//reset the arr
+
+	u8 flag=0,i=0;										//counter
+	u8 x=USART_u8Read();					//to chick if Enter is get first
+	while(x !=0x0D)								//Enter hex represintaion
 	{
 		string[i]=x;
 		x=USART_u8Read();
 		i++;
+
+		if(x==0x08)							//delete hex represintaion
+		{
+			i-=2;
+			x=USART_u8Read();
+			while(x==0x08)
+			{
+				i--;
+				x=USART_u8Read();
+				flag=1;
+			}
+
+		}
+		if(flag==1){i++;}
 	}
+
+	for(;i<50;i++){string[i]=0;}
 	return string;
 }
 
