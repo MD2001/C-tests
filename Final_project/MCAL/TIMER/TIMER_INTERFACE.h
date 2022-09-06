@@ -26,7 +26,6 @@ void ICU_SetEdge(u8 Edge);
 void ICU_DisableIntrupt();
 void ICU_EnableIntrupt();
 void TIMER0_FastPwmMode(u8 FAST_PWM_MODE);
-void Timer1_Init();
 u16 ICU_ReadICU();
 u8 ICU_SetCallBack(void (*Copy_pvCallBackFunc)(void));
 

@@ -30,10 +30,7 @@ static void time_for_1ms()
 		TCNT0=20;
 	}
 }
-void Timer1_Init()
-{
 
-}
 void Timer_init()
 {
 	/*Chooses Mode*/
