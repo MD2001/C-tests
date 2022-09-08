@@ -18,5 +18,4 @@ void USART_voidInit(void);
 
 u8* USART_ReciveString();
 void USART_SendString(u8* Copy_data);
-
 #endif

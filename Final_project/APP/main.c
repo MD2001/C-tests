@@ -10,6 +10,7 @@
 #include "../MCAL/DIO/DIO_INTERFACE.h"
 #include "../MCAL/USART/USART_INTERFACE.h"
 #include "../MCAL/TIMER/TIMER_INTERFACE.h"
+#include "../MCAL/ADC/ADC_INTERFACE.h"
 #include <String.h>
 #include <avr/delay.h>
 int main(void)
@@ -17,16 +18,26 @@ int main(void)
 	DIO_SetPinDirection(DIO_PORTD,DIO_PIN0,DIO_INPUT);		//RXD pin
 	DIO_SetPinDirection(DIO_PORTD,DIO_PIN1,DIO_OUTPUT);		//TXD pin
 	DIO_SetPinDirection(DIO_PORTD,DIO_PIN5,DIO_OUTPUT);		//OCA1 pin
-	DIO_SetPinDirection(DIO_PORTB,DIO_PIN5,DIO_OUTPUT);		//room3
-	DIO_SetPinDirection(DIO_PORTB,DIO_PIN6,DIO_OUTPUT);		//room2
-	DIO_SetPinDirection(DIO_PORTB,DIO_PIN7,DIO_OUTPUT);		//room1
-	LCD_Init();
-	USART_voidInit();
-	Timer1_init();
-	Timer1_SetICR(20000);
-	Timer1_SetChannelACompaermach(2500);
+	DIO_SetPinDirection(DIO_PORTA,DIO_PIN5,DIO_OUTPUT);		//room3
+	DIO_SetPinDirection(DIO_PORTA,DIO_PIN6,DIO_OUTPUT);		//room2
+	DIO_SetPinDirection(DIO_PORTA,DIO_PIN7,DIO_OUTPUT);		//room1
+	DIO_SetPinValue(DIO_PORTA,DIO_PIN5,DIO_LOW);			//room3 value
+	DIO_SetPinValue(DIO_PORTA,DIO_PIN6,DIO_LOW); 			//room2	value
+	DIO_SetPinValue(DIO_PORTA,DIO_PIN7,DIO_LOW); 			//room1 value
+	DIO_SetPinDirection(DIO_PORTA,DIO_PIN0,DIO_INPUT);		//LDR pin
+	DIO_SetPinDirection(DIO_PORTA,DIO_PIN1,DIO_INPUT);		//LM35 pin
+	DIO_SetPinDirection(DIO_PORTB,DIO_PIN3,DIO_OUTPUT);		//Motot pin
+	Timer_init();											// timer0 init
+	ADC_Init();												//ADC init
+	LCD_Init();												//LCD init
+	USART_voidInit();										//UART init
+	Timer1_init();											//timer1 init
+	Timer1_SetICR(20000);									//timner 1 top value 20000
+	Timer1_SetChannelACompaermach(2000);					//timer 1 compare mach value 2000
+	TIMER_SetOCR0TO(200);
 
-	u8 access=0, counter=1,id=0;
+	u16 ADC_LM35=0;
+	u8 ADC_Motor=0,access=0, counter=1,id=0;
 
 	u8 * z=NULL;
 	u8* pass=NULL;
@@ -71,27 +82,72 @@ int main(void)
 			{
 
 				USART_SendString("try agine: ");
-
+				USART_voidSend(0x0D);
 				counter++;
 			}
 		}
 	}
 
 	USART_SendString("options: ");
-	USART_voidSend(0x0D);		// press Enter
-	USART_SendString("1-light room1" );
-	USART_voidSend(0x0D);
-	USART_SendString("2-light room2");
-	USART_voidSend(0x0D);
-	USART_SendString("3-light room3");
 	USART_voidSend(0x0D);
 	USART_SendString("4-open door");
 	Timer1_SetChannelACompaermach(750);
-	DIO_SetPinValue(DIO_PORTB,DIO_PIN5,DIO_HIGH); //room3
-	DIO_SetPinValue(DIO_PORTB,DIO_PIN6,DIO_HIGH); //room2
-	DIO_SetPinValue(DIO_PORTB,DIO_PIN7,DIO_HIGH); //room1
+
 	while(1)
 	{
+		ADC_LM35=ADC_Read(0);
+		ADC_Motor=ADC_Read(1);
+		LCD_WriteCommand(lcd_clr);
+		LCD_WriteString("Bright: ");
+		LCD_voidDisplayIntegar(ADC_LM35);
+		LCD_GoToXY(1,0);
+		LCD_WriteString("Degres: ");
+		LCD_voidDisplayIntegar(ADC_Motor);
+		_delay_ms(2000);
+		if((ADC_LM35<=607)&&(ADC_LM35>100))
+		{
+			DIO_SetPinValue(DIO_PORTA,DIO_PIN5,DIO_HIGH); //room3
+			DIO_SetPinValue(DIO_PORTA,DIO_PIN6,DIO_LOW); //room2
+			DIO_SetPinValue(DIO_PORTA,DIO_PIN7,DIO_LOW); //room1
+		}
+		else if((ADC_LM35<=666)&&(ADC_LM35>607))
+		{
+			DIO_SetPinValue(DIO_PORTA,DIO_PIN5,DIO_HIGH); //room3
+			DIO_SetPinValue(DIO_PORTA,DIO_PIN6,DIO_HIGH); //room2
+			DIO_SetPinValue(DIO_PORTA,DIO_PIN7,DIO_LOW); //room1
+		}
+		else if((ADC_LM35<=709)&&(ADC_LM35>666))
+		{
+			DIO_SetPinValue(DIO_PORTA,DIO_PIN5,DIO_HIGH); //room3
+			DIO_SetPinValue(DIO_PORTA,DIO_PIN6,DIO_HIGH); //room2
+			DIO_SetPinValue(DIO_PORTA,DIO_PIN7,DIO_HIGH); //room1a
+		}
+		else
+		{
+			DIO_SetPinValue(DIO_PORTA,DIO_PIN5,DIO_LOW); //room3
+			DIO_SetPinValue(DIO_PORTA,DIO_PIN6,DIO_LOW); //room2
+			DIO_SetPinValue(DIO_PORTA,DIO_PIN7,DIO_LOW); //room1
+		}
+
+
+
+		if((ADC_Motor<=100)&&(ADC_Motor>0))
+			{
+			TIMER_SetOCR0TO(50);
+			}
+			else if((ADC_Motor<=200)&&(ADC_Motor>100))
+			{
+				TIMER_SetOCR0TO(100);
+			}
+			else if((ADC_Motor<=305)&&(ADC_Motor>200))
+			{
+				TIMER_SetOCR0TO(200);
+			}
+			else
+			{
+				TIMER_SetOCR0TO(250);
+			}
+
 
 	}
 

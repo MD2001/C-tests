@@ -15,7 +15,7 @@
  * 3-CTC
  * 4-Fast PWM
  * */
-#define Mode 		3
+#define Mode 		4
 /*
  * OPRTIONS:
  *	1- No_clock_source
