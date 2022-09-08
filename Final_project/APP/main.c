@@ -98,12 +98,8 @@ int main(void)
 		ADC_LM35=ADC_Read(0);
 		ADC_Motor=ADC_Read(1);
 		LCD_WriteCommand(lcd_clr);
-		LCD_WriteString("Bright: ");
 		LCD_voidDisplayIntegar(ADC_LM35);
-		LCD_GoToXY(1,0);
-		LCD_WriteString("Degres: ");
-		LCD_voidDisplayIntegar(ADC_Motor);
-		_delay_ms(2000);
+		_delay_ms(600);
 		if((ADC_LM35<=607)&&(ADC_LM35>100))
 		{
 			DIO_SetPinValue(DIO_PORTA,DIO_PIN5,DIO_HIGH); //room3

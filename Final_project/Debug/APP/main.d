@@ -5,7 +5,8 @@ APP/main.o APP/main.o: ../APP/main.c ../APP/../LIB/STD_TYPES.h \
   ../APP/../MCAL/DIO/../../LIB/STD_TYPES.h \
   ../APP/../MCAL/USART/USART_INTERFACE.h \
   ../APP/../MCAL/USART/../../LIB/STD_TYPES.h \
-  ../APP/../MCAL/TIMER/TIMER_INTERFACE.h
+  ../APP/../MCAL/TIMER/TIMER_INTERFACE.h \
+  ../APP/../MCAL/ADC/ADC_INTERFACE.h
 
 ../APP/../LIB/STD_TYPES.h:
 
@@ -24,3 +25,5 @@ APP/main.o APP/main.o: ../APP/main.c ../APP/../LIB/STD_TYPES.h \
 ../APP/../MCAL/USART/../../LIB/STD_TYPES.h:
 
 ../APP/../MCAL/TIMER/TIMER_INTERFACE.h:
+
+../APP/../MCAL/ADC/ADC_INTERFACE.h:

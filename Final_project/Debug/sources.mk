@@ -23,6 +23,7 @@ SUBDIRS := \
 APP \
 HAL/Key\ Pad \
 HAL/LCD \
+MCAL/ADC \
 MCAL/DIO \
 MCAL/GIE \
 MCAL/TIMER \
