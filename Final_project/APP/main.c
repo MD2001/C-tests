@@ -49,6 +49,7 @@ int main(void)
 	TIMER_SetOCR0TO(200);
 
 	u16 ADC_LM35=0;
+	u8 USAERT_chice='0';
 	u8 ADC_Motor=0,access=0, counter=0,id=0;
 
 	u8 * z=NULL;
@@ -95,15 +96,8 @@ int main(void)
 		}
 	}
 	_delay_ms(2000);
-	USART_SendString("options: ");
-	USART_voidSend(0x0D);
-	USART_SendString("open door");
-	USART_voidSend(0x0D);
-	Timer1_SetChannelACompaermach(999);
 
-	DIO_SetPinValue(DIO_PORTA,DIO_PIN5,DIO_LOW); //room3
-	DIO_SetPinValue(DIO_PORTA,DIO_PIN6,DIO_LOW); //room2
-	DIO_SetPinValue(DIO_PORTA,DIO_PIN7,DIO_LOW); //room1
+	Timer1_SetChannelACompaermach(999);
 
 	while(1)
 	{
@@ -157,6 +151,31 @@ int main(void)
 		{
 			TIMER_SetOCR0TO(250);
 		}
+
+		switch(USAERT_chice)
+		{
+		case '0':
+			USART_SendString("options: ");
+			USART_voidSend(0x0D);
+			USART_SendString("-close door: 1 ");
+			USART_voidSend(0x0D);
+			Timer1_SetChannelACompaermach(2000);
+			break;
+		case '1':
+			USART_SendString("options: ");
+			USART_voidSend(0x0D);
+			USART_SendString("-open door: 0 ");
+			USART_voidSend(0x0D);
+			Timer1_SetChannelACompaermach(999);
+			break;
+		default:
+			USART_SendString("not valid option");
+			USART_voidSend(0x0D);
+			break;
+		}
+		USART_SendString("Enter your option:");
+		USAERT_chice=USART_u8Read();
+		while(USART_u8Read()!=0x0D);
 
 
 	}
