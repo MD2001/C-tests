@@ -7,6 +7,25 @@
 #define TIMER_PRIVET_H
 
 
+
+
+
+#define TCCR2				*((volatile u8*)0x4D)
+#define TCCR2_WGM20			6
+#define TCCR2_COM21			5
+#define TCCR2_COM20			4
+#define TCCR2_WGM21			3
+#define TCCR2_CS22			2
+#define TCCR2_CS21			1
+#define TCCR2_CS20			0
+
+
+
+
+
+
+
+
 #define TCCR1A				*((volatile u8*)0x4F)
 #define TCCR1A_WGM10		0
 #define TCCR1A_WGM11		1
