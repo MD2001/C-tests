@@ -13,6 +13,7 @@
 
 
 static void (*TIMER0_pvCallBackFunc)(void)=NULL;
+static void (*TIMER2_pvCallBackFunc)(void)=NULL;
 static void (*ICU_pvCallBackFunc)(void) =NULL;
 
 static u16 ms=0;
@@ -180,6 +181,8 @@ u8 TIMER_SetCallBack(void (*Copy_pvCallBackFunc)(void))
 	return Local_u8ErrorStauts;
 }
 
+
+
 void ICU_Init()
 {
 
@@ -245,7 +248,7 @@ void __vector_11 (void)
 	}
 
 }
-/////////////////////////////////////////////////////////////////
+///////////////////////// TIMER1 /////////////////////////////////
 void Timer1_init()
 {
 	/*Fast PWM non-inverting mode*/
@@ -275,8 +278,44 @@ void Timer1_SetChannelACompaermach(u16 Copy_data)
 {
 	OCR1A=Copy_data;
 }
-////////////////////////////////////////////////////////////////
+/////////////////////////// TIMER2 ////////////////////////////
 
+void Timer2_init()
+{
+	//set to Normal mode
+	CLR_BIT(TCCR2,TCCR2_WGM20);
+	CLR_BIT(TCCR2,TCCR2_WGM21);
+
+	//OC2 is disconnected
+	CLR_BIT(TCCR2,TCCR2_COM20);
+	CLR_BIT(TCCR2,TCCR2_COM21);
+
+	//set prescaler to 128
+	CLR_BIT(TCCR2,TCCR2_CS21);
+	SET_BIT(TCCR2,TCCR2_CS20);
+	SET_BIT(TCCR2,TCCR2_CS22);
+
+	//Emable overflow Interupt
+	SET_BIT(TIMSK,TIMSK_TOIE2);
+
+	OCR2=255;
+}
+
+u8 TIMER2_SetCallBack(void (*Copy_pvCallBackFunc)(void))
+{
+	u8 Local_u8ErrorStauts=OK;
+	if(Copy_pvCallBackFunc != NULL)
+	{
+		TIMER2_pvCallBackFunc=Copy_pvCallBackFunc;
+
+	}
+	else
+	{
+		Local_u8ErrorStauts=NOT_OK;
+	}
+	return Local_u8ErrorStauts;
+}
+///////////////////////////////////////////////////////////////
 
 void __vector_6 (void) __attribute__((signal));
 void __vector_6 (void)
@@ -284,6 +323,16 @@ void __vector_6 (void)
 	if(ICU_pvCallBackFunc != NULL)
 	{
 		ICU_pvCallBackFunc();
+	}
+
+}
+
+void __vector_5 (void) __attribute__((signal));
+void __vector_5 (void)
+{
+	if(TIMER2_pvCallBackFunc != NULL)
+	{
+		TIMER2_pvCallBackFunc();
 	}
 
 }

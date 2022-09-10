@@ -40,7 +40,8 @@ void USART_voidInit(void)
 
 	SET_BIT(UCSRB,UCSRB_TXEN);    //transmitter enable
 	SET_BIT(UCSRB,UCSRB_RXEN);    //receiver   enable
-
+	CLR_BIT(UCSRB,UCSRB_RXCIE);	//Disable interupt
+	CLR_BIT(UCSRB,UCSRB_TXCIE);
 }
 
 

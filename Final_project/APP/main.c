@@ -6,6 +6,7 @@
 /***************************** Version : 2.0 ***************************************************************/
 #include "../LIB/STD_TYPES.h"
 #include "../LIB/BIT_MATH.h"
+#include "../MCAL/GIE/GIE_INTERFACE.h"
 #include "../HAL/LCD/LCD_INTERFACE.h"
 #include "../MCAL/DIO/DIO_INTERFACE.h"
 #include "../MCAL/USART/USART_INTERFACE.h"
@@ -13,8 +14,9 @@
 #include "../MCAL/ADC/ADC_INTERFACE.h"
 #include <String.h>
 #include <avr/delay.h>
-
-u8 arr[8][5]={
+static u16 ADC_LM35;
+static u8 ADC_Motor;
+u8 arr[8]={
 		0b01100,
 		0b10000,
 		0b01100,
@@ -27,6 +29,7 @@ u8 arr[8][5]={
 
 int main(void)
 {
+
 	DIO_SetPinDirection(DIO_PORTD,DIO_PIN0,DIO_INPUT);		//RXD pin
 	DIO_SetPinDirection(DIO_PORTD,DIO_PIN1,DIO_OUTPUT);		//TXD pin
 	DIO_SetPinDirection(DIO_PORTD,DIO_PIN5,DIO_OUTPUT);		//OCA1 pin
@@ -47,10 +50,12 @@ int main(void)
 	Timer1_SetICR(20000);									//timner 1 top value 20000
 	Timer1_SetChannelACompaermach(2000);					//timer 1 compare mach value 2000
 	TIMER_SetOCR0TO(200);
-
-	u16 ADC_LM35=0;
+	//Timer2_init();											//timer2 init
+	//TIMER2_SetCallBack(&action);							//timer2 callback
+	ADC_LM35=0;
+	ADC_Motor=0;
 	u8 USAERT_chice='0';
-	u8 ADC_Motor=0,access=0, counter=0,id=0;
+	u8 access=0, counter=0,id=0;
 
 	u8 * z=NULL;
 	u8* pass=NULL;
@@ -83,6 +88,7 @@ int main(void)
 				LCD_WriteString("welcome back");
 				LCD_GoToXY(1,0);
 				LCD_WriteString("ahmed");
+
 			}
 			else
 			{
@@ -91,14 +97,13 @@ int main(void)
 				USART_voidSend(0x0D);
 				counter++;
 				pass=NULL;
+				access=0;
 				if(counter==3){id=0;}
 			}
 		}
 	}
 	_delay_ms(2000);
-
-	Timer1_SetChannelACompaermach(999);
-
+	//Enable glable Interupts
 	while(1)
 	{
 		ADC_LM35=ADC_Read(0);
@@ -107,22 +112,21 @@ int main(void)
 		LCD_WriteString("Degres: ");
 		LCD_voidDisplayIntegar(ADC_Motor*0.4868);
 		LCD_voidDisplaySpecialChar(arr,0x01,0,10);
-		_delay_ms(2000);
-		if((ADC_LM35<=300)&&(ADC_LM35>100))
+		if((ADC_LM35<=456))
 		{
 			DIO_SetPinValue(DIO_PORTA,DIO_PIN5,DIO_HIGH); //room3
 			DIO_SetPinValue(DIO_PORTA,DIO_PIN6,DIO_HIGH); //room2
 			DIO_SetPinValue(DIO_PORTA,DIO_PIN7,DIO_HIGH); //room1
 		}
-		else if((ADC_LM35<=500)&&(ADC_LM35>300))
+		else if((ADC_LM35<=519)&&(ADC_LM35>456))
 		{
 			DIO_SetPinValue(DIO_PORTA,DIO_PIN5,DIO_HIGH); //room3
 			DIO_SetPinValue(DIO_PORTA,DIO_PIN6,DIO_HIGH); //room2
 			DIO_SetPinValue(DIO_PORTA,DIO_PIN7,DIO_LOW); //room1
 		}
-		else if((ADC_LM35<=700)&&(ADC_LM35>500))
+		else if((ADC_LM35<=567)&&(ADC_LM35>519))
 		{
-			DIO_SetPinValue(DIO_PORTA,DIO_PIN5,DIO_LOW); //room3
+			DIO_SetPinValue(DIO_PORTA,DIO_PIN5,DIO_HIGH); //room3
 			DIO_SetPinValue(DIO_PORTA,DIO_PIN6,DIO_LOW); //room2
 			DIO_SetPinValue(DIO_PORTA,DIO_PIN7,DIO_LOW); //room1
 		}
@@ -159,6 +163,8 @@ int main(void)
 			USART_voidSend(0x0D);
 			USART_SendString("-close door: 1 ");
 			USART_voidSend(0x0D);
+			USART_SendString("-refresh data: 3 ");
+			USART_voidSend(0x0D);
 			Timer1_SetChannelACompaermach(2000);
 			break;
 		case '1':
@@ -166,7 +172,17 @@ int main(void)
 			USART_voidSend(0x0D);
 			USART_SendString("-open door: 0 ");
 			USART_voidSend(0x0D);
+			USART_SendString("-refresh data: 3 ");
+			USART_voidSend(0x0D);
 			Timer1_SetChannelACompaermach(999);
+			break;
+		case '3':
+			USART_SendString("options: ");
+			USART_voidSend(0x0D);
+			USART_SendString("-open door: 0 ");
+			USART_voidSend(0x0D);
+			USART_SendString("-refresh data: 3 ");
+			USART_voidSend(0x0D);
 			break;
 		default:
 			USART_SendString("not valid option");
@@ -182,3 +198,8 @@ int main(void)
 
 	return 0;
 }
+
+
+
+
+

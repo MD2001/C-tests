@@ -29,6 +29,10 @@ void TIMER0_FastPwmMode(u8 FAST_PWM_MODE);
 u16 ICU_ReadICU();
 u8 ICU_SetCallBack(void (*Copy_pvCallBackFunc)(void));
 
+
+void Timer2_init();
+u8 TIMER2_SetCallBack(void (*Copy_pvCallBackFunc)(void));
+
 #define ICU_RISING_EDGE			1
 #define ICU_FALLING_EDGE		2
 #endif
