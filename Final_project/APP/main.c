@@ -29,7 +29,8 @@ u8 arr[8]={
 
 int main(void)
 {
-
+	//Enable glable Interupts
+	//GIE_voidEnable();
 	DIO_SetPinDirection(DIO_PORTD,DIO_PIN0,DIO_INPUT);		//RXD pin
 	DIO_SetPinDirection(DIO_PORTD,DIO_PIN1,DIO_OUTPUT);		//TXD pin
 	DIO_SetPinDirection(DIO_PORTD,DIO_PIN5,DIO_OUTPUT);		//OCA1 pin
@@ -103,7 +104,7 @@ int main(void)
 		}
 	}
 	_delay_ms(2000);
-	//Enable glable Interupts
+
 	while(1)
 	{
 		ADC_LM35=ADC_Read(0);
