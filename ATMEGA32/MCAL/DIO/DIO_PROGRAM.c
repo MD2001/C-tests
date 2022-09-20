@@ -1,13 +1,27 @@
-#include "../../LIB/STD_TYPES.h"
-#include "../../LIB/BIT_MATH.h"
-
+/***********************************************************************************************************/
+/***************************** Author : Mohamed diaa********************************************************/
+/***************************** Layer : MCAL *****************************************************************/
+/***************************** SWC : DIO *******************************************************************/
+/***************************** Version : 2.0 ***************************************************************/
+#include "../../LIBRARY/STD_TYPES.h"
+#include "../../LIBRARY/BIT_MATH.h"
 
 #include "DIO_CONFIG.h"
 #include "DIO_PRIVATE.h"
 #include "DIO_INTERFACE.h"
 
-
-
+void DIO_init()
+{
+	DDRA_REG=PORTA_DIR;
+	DDRB_REG=PORTB_DIR;
+	DDRC_REG=PORTC_DIR;
+	DDRD_REG=PORTD_DIR;
+	
+	PORTA_REG=PORTA_INITALE_VALUE;
+	PORTB_REG=PORTB_INITALE_VALUE;
+	PORTC_REG=PORTC_INITALE_VALUE;
+	PORTD_REG=PORTD_INITALE_VALUE;
+}
 void DIO_SetPinDirection(u8 Port , u8 Pin , u8 Direction)
 {
 	switch(Port)
@@ -112,7 +126,7 @@ void DIO_SetPinValue    (u8 Port , u8 Pin , u8 Value )
 
 u8   DIO_GetPinValue    (u8 Port , u8 Pin )
 {
-	u8 Value;
+	u8 Value=0;
 	switch(Port)
 	{
 		case DIO_PORTA: Value = GET_BIT(PINA_REG,Pin); break;
